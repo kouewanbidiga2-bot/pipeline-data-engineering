@@ -1,0 +1,29 @@
+# Configuration du Pipeline Data Engineering
+
+database:
+  host: localhost
+  port: 5432
+  name: data_warehouse
+  user: postgres
+  password: ${DB_PASSWORD}
+
+quality:
+  completeness_threshold: 0.95
+  uniqueness_threshold: 1.0
+  validity_threshold: 0.98
+  consistency_threshold: 0.95
+
+sources:
+  csv:
+    enabled: true
+    path: data/raw/
+  api:
+    enabled: false
+    url: https://api.example.com/data
+  database:
+    enabled: false
+    connection_string: postgresql://user:pass@host:5432/db
+
+logging:
+  level: INFO
+  file: logs/pipeline.log
